@@ -12,5 +12,7 @@ const addFun = (number1, number2) => {
 };
 
 add.addEventListener('click', () => {
+    console.log('---------------add---------------')
     console.log(addFun(input1.value, input2.value));
+    console.log('---------------------------------')
 });

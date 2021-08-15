@@ -12,5 +12,7 @@ const addMethod = (number1: number, number2: number) => {
 };
 
 btn.addEventListener('click', () => {
+    console.log('-------------addScript-------------');
     console.log(addMethod(+in1.value, +in2.value));
+    console.log('-----------------------------------');
 });

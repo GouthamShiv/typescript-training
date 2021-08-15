@@ -9,5 +9,7 @@ var addMethod = function (number1, number2) {
     return number1 + number2;
 };
 btn.addEventListener('click', function () {
+    console.log('-------------addScript-------------');
     console.log(addMethod(+in1.value, +in2.value));
+    console.log('-----------------------------------');
 });
