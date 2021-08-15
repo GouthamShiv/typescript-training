@@ -1,13 +1,13 @@
-# TypeScript Learning and Reference Material
+# **TypeScript Learning and Reference Material**
 ---
 ---
-### Installing TypeScript
+### **Installing TypeScript**
 ---
 > npm install -g typescript
 
 ---
 ---
-### Project set-up
+### **Project set-up**
 ---
 1. initialize node application ==> `npm init`
 1. install lite-server ==> `npm install -g lite-server`
@@ -16,13 +16,13 @@
 
 ---
 ---
-### Compiling Typescript
+### **Compiling Typescript**
 ---
 > tsc <\<filename\>\>
 
 ---
 ---
-### Datatypes
+### **Datatypes**
 ---
 * **number | _javascript & typescript_**
     ```typescript
@@ -115,11 +115,49 @@
         else if (typeof input1 === 'string' && typeof input2 === 'string')
             return input1.toString() + input2.toString();
     };
+    let inputN1 = 4;
+    let inputN2 = 3;
+    console.log("Sum of " + inputN1 + " and " + inputN2 + " is: " + combine(inputN1, inputN2));
+
+    let inputS1 = 'Solar ';
+    let inputS2 = 'System';
+    console.log("Concatination of " + inputS1 + "and " + inputS2 + " is: " + combine(inputS1, inputS2));
+    ```
+* **literal | _typescript_**
+    ```typescript
+    // function combineLiteral(input1: number | string, input2: number | string, resultType: 'as-number' | 'as-string') {
+    
+    function combineLiteral(input1: number | string, input2: number | string, resultType: String) {
+    let result;
+    if (typeof input1 === 'number' && typeof input2 === 'number')
+        result = input1 + input2;
+    else if (typeof input1 === 'string' && typeof input2 === 'string')
+        result = input1.toString() + input2.toString();
+
+    if(resultType === 'as-number')
+        return +result;
+    else
+        return result.toString();
+    
+    };
+
+    console.log("Combin 4 and 6 as-string: " + combineLiteral(4, 6, 'as-string'));
+    console.log("Combin '4' and '6' as-number: " + combineLiteral('4', '6', 'as-number'));
+
+    // enum RETURN_TYPE {
+    // AS_NUMBER = 'as-number',
+    // AS_STRING = 'as-string'
+    // }
+    // function combineLiteral(input1: number | string, input2: number | string, resultType: RETURN_TYPE) {
+    // ...
+    // }
+    // console.log("Combin 4 and 6 as-string: " + combineLiteral(4, 6, RETURN_TYPE.AS_STRING));
+    // console.log("Combin '4' and '6' as-number: " + combineLiteral('4', '6', RETURN_TYPE.AS_NUMBER));
     ```
 
 ---
 ---
-### Type Assignment and Type Inference
+### **Type Assignment and Type Inference**
 ---
 ```typescript
 let firstNumber = 20; // automatically assigned to `number` type
@@ -131,7 +169,7 @@ name = 1; // will be an error, as the variable is explicitly assigned to a `stri
 
 ---
 ---
-### Understanding `object`s in TypeScript
+### **Understanding `object`s in TypeScript**
 ---
 ```typescript
 //error scenario, as the person object is not declared
@@ -153,3 +191,94 @@ let personObj: {
 
 console.log(personObj.name);
 ```
+
+---
+---
+### **Return Types and void**
+---
+```typescript
+function returnType(input1: number, input2: number): number {
+    // return input1.toString() + input2.toString(); // error - return type has to be number
+    return input1 + input2;
+};
+
+// void return-type as it's not returning anything
+function printResult(value: number): void {
+    console.log('Result: ' + value);
+}
+
+// can also mention undefined, but return keyword is mandatory
+function printResult(value: number): undefined {
+    console.log('Result: ' + value);
+    return;
+}
+
+printResult(returnType(4,3));
+
+console.log(printResult(returnType(4,3)));
+```
+
+---
+---
+### **Functions as Types**
+---
+`Typescript allows to assign functions to variables`
+
+`If the variable getting assigned to a function is not explicitly declared as `**`Function  `**` type, then it'll be considered as  `**` any  `**` by default`
+```typescript
+function functionType(input1: number, input2: number): number {
+    return input1 + input2;
+};
+// declaring variable with function type
+// let functionVar: Function;
+
+// declaring variable with function type along with signature
+let functionVar: (a:number, b:number) => number;
+functionVar = functionType;
+
+console.log(functionVar(4,3));
+
+```
+
+---
+---
+### **_Unknown_ and _Never_ Types**
+---
+* **understanding _unknown_**
+
+    **`userInput  `** ` is of type  ` **`  any`**`, hence can be assigned with any value`
+    ```typescript
+    let userInput;
+    userInput = 5;
+    userInput = 'John';
+    ```
+
+    `directly trying to assign ` **` unknown  `** ` type to other types will throw an error`
+
+    `instead, we can assign ` **` unknown  `** ` types to other types by doing a check as below`
+    ```typescript
+    let userData: unknown;
+    let userName: string;
+
+    userData = 5;
+    userName  = 'John'
+
+    // error - Type 'unknown' is not assignable to type 'string'.
+    // userName = userData;
+
+    // Since the compiler is aware, that when userData is of type String only then it's assigned to userName variable, there is no error
+    if (typeof userData === 'string') {
+        userName = userData;
+    }
+    ```
+* **understanding _never_**
+
+    `similar to  ` **`  void  `** `  but  ` **`  void  `** `  still returns  `  **`  undefined `**
+
+    **`never  `** `  will not be returning any value, not even  ` **`  undefined`**
+
+    ```typescript
+    function generateError(message: string, code: number): never {
+        throw{message, code};
+    }
+    ```
