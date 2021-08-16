@@ -1,3 +1,4 @@
+"use strict";
 console.log('---------------literal---------------');
 function combineLiteral(input1, input2, resultType) {
     var result;

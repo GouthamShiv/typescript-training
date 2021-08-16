@@ -1,3 +1,4 @@
+"use strict";
 console.log('-------------any-------------');
 // let array:  string[];
 // array.push('test');

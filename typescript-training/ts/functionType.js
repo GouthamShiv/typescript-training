@@ -1,3 +1,4 @@
+"use strict";
 console.log('-------------function-type-------------');
 function functionType(input1, input2) {
     // return input1.toString() + input2.toString(); // error - return type has to be number

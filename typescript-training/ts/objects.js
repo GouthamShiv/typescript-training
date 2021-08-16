@@ -1,7 +1,8 @@
+"use strict";
 console.log('------------objects------------');
 var person = {
     name: 'John',
-    age: 30
+    age: 30,
 };
 console.log('Name: ' + person.name);
 //error scenario, as the person object is not declared

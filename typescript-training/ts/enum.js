@@ -1,3 +1,4 @@
+"use strict";
 console.log('---------------enum---------------');
 var ROLES;
 (function (ROLES) {

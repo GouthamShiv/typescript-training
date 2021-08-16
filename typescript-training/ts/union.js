@@ -1,3 +1,4 @@
+"use strict";
 console.log('-------------union-------------');
 function combine(input1, input2) {
     if (typeof input1 === 'number' && typeof input2 === 'number')

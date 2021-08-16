@@ -1,3 +1,4 @@
+"use strict";
 console.log('-------------array-------------');
 var personWithArray = {
     name: 'John',

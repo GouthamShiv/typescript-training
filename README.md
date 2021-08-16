@@ -7,18 +7,36 @@
 
 ---
 ---
+### **Compiling Typescript**
+---
+```bash
+tsc filename.ts
+# to compile in watch mode (automatic compilation)
+tsc filename.ts --watch
+tsc filename.ts -w
+```
+
+---
+---
+### **Initialize TypeScript to compile multiple _.ts_ files**
+---
+```bash
+cd /path/to/project
+tsc --init
+# after initializing, we can run below command
+tsc --watch
+# or
+tsc -w
+```
+
+---
+---
 ### **Project set-up**
 ---
 1. initialize node application ==> `npm init`
 1. install lite-server ==> `npm install -g lite-server`
 1. download node packages ==> `npm install`
 1. to start application ==> `npm start`
-
----
----
-### **Compiling Typescript**
----
-> tsc <\<filename\>\>
 
 ---
 ---
@@ -282,3 +300,19 @@ console.log(functionVar(4,3));
         throw{message, code};
     }
     ```
+
+    ---
+---
+### **Understanding _`tsconfig.json`_**
+---
+
+* Excluding folders / files from getting compiled by TypeScript compiler
+    * > "exclude": ["node_modules"]
+* Including folders / files for getting compiled by TypeScript compiler
+    * > "include": ["ts/*"]
+* Specify specific `  files  ` to get compiled by TypeScript compiler
+    * > "files": [""ts/main.ts]
+* Specify the `  target  ` format
+    * > "target": "ES5"
+* Specify specific libraries to include
+    * > "lib": ["DOM", "DOM.Iterable", "ScriptHost", "ES6"]

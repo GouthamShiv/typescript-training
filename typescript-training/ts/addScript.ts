@@ -1,6 +1,6 @@
 const in1 = document.querySelector('#num1') as HTMLInputElement;
 const in2 = document.querySelector('#num2') as HTMLInputElement;
-const btn = document.querySelector('#add');
+const btn = document.querySelector('#add')!;
 
 // add.addEventListener('click', () => {
 //     console.log(input1.value);

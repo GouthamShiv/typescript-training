@@ -1,3 +1,4 @@
+"use strict";
 console.log('----------------main---------------');
 function sumFun(num1, num2) {
     return num1 + num2;

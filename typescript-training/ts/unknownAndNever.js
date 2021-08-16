@@ -1,3 +1,4 @@
+"use strict";
 console.log('----------unknown-and-never----------');
 // userInput is of type any, hence can be assigned with any value
 var userInput;

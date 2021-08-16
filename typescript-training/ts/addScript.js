@@ -1,3 +1,4 @@
+"use strict";
 var in1 = document.querySelector('#num1');
 var in2 = document.querySelector('#num2');
 var btn = document.querySelector('#add');

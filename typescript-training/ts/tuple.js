@@ -1,3 +1,4 @@
+"use strict";
 console.log('-------------tuple-------------');
 var personWithTuple = {
     name: 'John',
