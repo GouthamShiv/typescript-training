@@ -301,7 +301,7 @@ console.log(functionVar(4,3));
     }
     ```
 
-    ---
+---
 ---
 ### **Understanding _`tsconfig.json`_**
 ---
@@ -316,3 +316,126 @@ console.log(functionVar(4,3));
     * > "target": "ES5"
 * Specify specific libraries to include
     * > "lib": ["DOM", "DOM.Iterable", "ScriptHost", "ES6"]
+
+---
+---
+### **_`class(es)`_ and more in TypeScript**
+---
+
+* `Sample way to declare a class in TypeScript`
+    ```typescript
+    class Department {
+        name: string;
+        constructor(name: string) {
+            this.name = name;
+        }
+    }
+    ```
+* `Methods in class`
+    ```typescript
+    ...
+        methodName() {
+            ...
+            ...
+        }
+    ...
+    ```
+* `Making methods to belong to a class`
+    ```typescript
+    class Department {
+        name: string;
+
+        constructor(name: string) {
+            this.name = name;
+        }
+
+        describe(this: Department) {
+            console.log("Department is :: " + this.name);
+        }
+
+    }
+
+    let accDept = new Department("Accounting");
+    accDept.describe();
+    console.log(accDept);
+
+    /*let accDeptCopy = { describe: accDept.describe }
+    accDeptCopy.describe(); // error :: The 'this' context of type '{ describe: (this: Department) => void; }' is not assignable to method's 'this' of type 'Department'.
+                            // Property 'name' is missing in type '{ describe: (this: Department) => void; }' but required in type 'Department'.
+    }*/
+    // to fix above issue
+    let accDeptCopy = { name: 'Sales', describe: accDept.describe }
+    accDeptCopy.describe();
+    console.log(accDeptCopy);
+
+    // OR
+
+    let anotherAccDeptCopy = { describe: accDept.describe }
+    anotherAccDeptCopy.describe.bind(accDept)();
+    console.log(anotherAccDeptCopy);
+    ```
+
+---
+---
+### **Access modifiers in TypeScript classes**
+---
+
+* `Making variables accessible within the class`
+    ```javascript
+    class Dept {
+        name: string;
+        private employees: string[] = [];
+
+        constructor(name: string) {
+            this.name = name;
+        }
+
+        describe(this: Dept) {
+            console.log("Department is :: " + this.name);
+        }
+
+        addEmployee(employee: string) {
+            this.employees.push(employee);
+        }
+
+        printEmployees() {
+            console.log(this.employees.length);
+            console.log(this.employees);
+        }
+
+    }
+
+    let dept = new Dept("Accounting");
+    dept.addEmployee('John');
+    dept.addEmployee('Wick');
+
+    dept.employees[2] = 'Don'; // error :: Property 'employees' is private and only accessible within class 'Dept'.
+    ```
+
+* `Shorthand access modifier`
+    
+    `TypeScript allows the declaration of variables in the constructor along with access-modifier specifier`
+
+    ```typescript
+    ...
+        constructor(private id: number, public name: string) {
+            ...
+        }
+    ...
+    ```
+
+* _`readonly`_
+
+    `to make sure once a value is assigned, it is not modifiable`
+
+    ```typescript
+    ...
+        constructor(private readonly id: number, public name: string) {
+            ...
+        }
+        ...
+        this.id = 50; // error :: Cannot assign to 'id' because it is a read-only property.
+        ...
+    ...
+    ```
+    

@@ -6,9 +6,9 @@ function combineLiteral(input1, input2, resultType) {
         result = input1 + input2;
     else if (typeof input1 === 'string' && typeof input2 === 'string')
         result = input1.toString() + input2.toString();
-    if (resultType === 'as-number')
+    if (resultType === 'as-number' && result)
         return +result;
-    else
+    else if (result)
         return result.toString();
 }
 ;
@@ -22,9 +22,9 @@ function combineLiteralType(input1, input2, resultType) {
         result = input1 + input2;
     else if (typeof input1 === 'string' && typeof input2 === 'string')
         result = input1.toString() + input2.toString();
-    if (resultType === 'as-number')
+    if (resultType === 'as-number' && result)
         return +result;
-    else
+    else if (result)
         return result.toString();
 }
 ;
@@ -43,9 +43,9 @@ function combineLiteralEnum(input1, input2, resultType) {
         result = input1 + input2;
     else if (typeof input1 === 'string' && typeof input2 === 'string')
         result = input1.toString() + input2.toString();
-    if (resultType === RESULT_TYPE.AS_NUMBER)
+    if (resultType === RESULT_TYPE.AS_NUMBER && result)
         return +result;
-    else
+    else if (result)
         return result.toString();
 }
 ;
