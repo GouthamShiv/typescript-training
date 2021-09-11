@@ -40,7 +40,7 @@ tsc -w
 
 ---
 ---
-### **Datatypes**
+### **Datatypes** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/main.ts)
 ---
 * **number | _javascript & typescript_**
     ```typescript
@@ -58,7 +58,7 @@ tsc -w
     ```typescript
     let isCat = true;
     ```
-* **object | _javascript & typescript_**
+* **object | _javascript & typescript_** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/objects.ts)
     ```typescript
     let personObj: {
         name: string;
@@ -68,12 +68,12 @@ tsc -w
         age: 30
     };
     ```
-* **array | _javascript & typescript_**
+* **array | _javascript & typescript_** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/array.ts)
     ```typescript
     let favourites: string[];
     favourites = ['music', 'chess', 'technology'];
     ```
-* **tuple | _typescript_**
+* **tuple | _typescript_** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/tuple.ts)
 
     `A tuple maintains order and will have a definite set of values`
     ```typescript
@@ -97,7 +97,7 @@ tsc -w
     // personWithTuple.role.push('Admin'); // issue that TypeScript cannot understand `push`
     personWithTuple.role = [1, 'Admin']; // This is a better way, so TypeScript compiler can identify the issue
     ```
-* **enum | _typescript_**
+* **enum | _typescript_** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/enum.ts)
     ```typescript
     enum ROLES {
         ADMIN,
@@ -112,7 +112,7 @@ tsc -w
         role: ROLES.ADMIN
     };
     ```
-* **any | _typescript_**
+* **any | _typescript_** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/any.ts)
 
     `Bettter to avoid this as much as possible`
     ```typescript
@@ -125,7 +125,7 @@ tsc -w
         console.log(data);
     }
     ```
-* **union | _typescript_**
+* **union | _typescript_** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/union.ts)
     ```typescript
     function combine(input1: number | string, input2: number | string) {
         if (typeof input1 === 'number' && typeof input2 === 'number')
@@ -141,7 +141,7 @@ tsc -w
     let inputS2 = 'System';
     console.log("Concatination of " + inputS1 + "and " + inputS2 + " is: " + combine(inputS1, inputS2));
     ```
-* **literal | _typescript_**
+* **literal | _typescript_** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/literal.ts)
     ```typescript
     // function combineLiteral(input1: number | string, input2: number | string, resultType: 'as-number' | 'as-string') {
     
@@ -175,7 +175,7 @@ tsc -w
 
 ---
 ---
-### **Type Assignment and Type Inference**
+### **Type Assignment and Type Inference** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/main.ts)
 ---
 ```typescript
 let firstNumber = 20; // automatically assigned to `number` type
@@ -187,7 +187,7 @@ name = 1; // will be an error, as the variable is explicitly assigned to a `stri
 
 ---
 ---
-### **Understanding `object`s in TypeScript**
+### **Understanding `object`s in TypeScript** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/objects.ts)
 ---
 ```typescript
 //error scenario, as the person object is not declared
@@ -212,7 +212,7 @@ console.log(personObj.name);
 
 ---
 ---
-### **Return Types and void**
+### **Return Types and void** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/returnType.ts)
 ---
 ```typescript
 function returnType(input1: number, input2: number): number {
@@ -238,7 +238,7 @@ console.log(printResult(returnType(4,3)));
 
 ---
 ---
-### **Functions as Types**
+### **Functions as Types** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/functionType.ts)
 ---
 `Typescript allows to assign functions to variables`
 
@@ -260,7 +260,7 @@ console.log(functionVar(4,3));
 
 ---
 ---
-### **_Unknown_ and _Never_ Types**
+### **_Unknown_ and _Never_ Types** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/unknownAndNever.ts)
 ---
 * **understanding _unknown_**
 
@@ -303,7 +303,7 @@ console.log(functionVar(4,3));
 
 ---
 ---
-### **Understanding _`tsconfig.json`_**
+### **Understanding _`tsconfig.json`_** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/tsconfig.json)
 ---
 
 * Excluding folders / files from getting compiled by TypeScript compiler
@@ -319,7 +319,7 @@ console.log(functionVar(4,3));
 
 ---
 ---
-### **_`class(es)`_ and more in TypeScript**
+### **_`class(es)`_ and more in TypeScript** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/classExample.ts)
 ---
 
 * `Sample way to declare a class in TypeScript`
@@ -380,7 +380,7 @@ console.log(functionVar(4,3));
 ### **Access modifiers in TypeScript classes**
 ---
 
-* `Making variables accessible within the class`
+* `Making variables accessible within the class` [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/accessModifiers.ts)
     ```javascript
     class Dept {
         name: string;
@@ -412,7 +412,7 @@ console.log(functionVar(4,3));
     dept.employees[2] = 'Don'; // error :: Property 'employees' is private and only accessible within class 'Dept'.
     ```
 
-* `Shorthand access modifier`
+* `Shorthand access modifier` [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/shorthandAccessModifier.ts)
     
     `TypeScript allows the declaration of variables in the constructor along with access-modifier specifier`
 
@@ -424,7 +424,7 @@ console.log(functionVar(4,3));
     ...
     ```
 
-* _`readonly`_
+* _`readonly`_ [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/readonlyAccessModifier.ts)
 
     `to make sure once a value is assigned, it is not modifiable`
 
@@ -438,4 +438,97 @@ console.log(functionVar(4,3));
         ...
     ...
     ```
-    
+
+---
+---
+### **Inheritance in TypeScript** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/inheritance.ts)
+---
+
+`TypeScript allows to extend a class, providing the inheritance feature`
+
+```typescript
+...
+...
+class Department {
+    ...
+    ...
+}
+...
+...
+class Accounts extends Department {
+    ...
+    ...
+}
+...
+...
+class IT extends Department {
+    ...
+    ...
+}
+...
+...
+```
+
+---
+---
+### **Overriding and Protected access-modifier in TypeScript** [example](https://github.com/GouthamShiv/typescript-training/blob/master/typescript-training/ts/overriding.ts)
+---
+
+* Overriding methods from base class
+
+    `using ` **` super `** ` keyword, we can access base class methods`
+
+    ```typescript
+    ...
+    ...
+    class Department {
+        ...
+        ...
+        addEmployee(name: string) {
+            ...
+            ...
+        }
+        ...
+        ...
+    }
+    ...
+    ...
+    class Accounts extends Department {
+        ...
+        ...
+        super.addEmployee("Smith");
+        ...
+        ...
+    }
+    ...
+    ...
+    ```
+
+* **protected** keyword
+
+    **`protected `** ` keyword allows the inherited class to access the properties of the base class`
+
+    ```typescript
+    ...
+    ...
+    class Department {
+        ...
+        ...
+        private id: string;
+        protected name: string;
+        ...
+        ...
+    }
+    ...
+    ...
+    class Accounts extends Department {
+        ...
+        ...
+        this.id = 'A01' // error :: Property 'id' is private and only accessible within class 'Department'.
+        this.name = 'Accounts' // valid
+        ...
+        ...
+    }
+    ...
+    ...
+    ```
